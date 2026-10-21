@@ -1,0 +1,12 @@
+
+title: "自分で学ぶ中国語"
+description: "中国語の独学とHSK受験の記録"
+lang: ja
+
+url: "https://linlin-art.github.io"
+baseurl: "/jibundemanabu"
+
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+
+timezone: Asia/Tokyo
