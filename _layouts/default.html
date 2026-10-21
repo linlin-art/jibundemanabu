@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | default: site.title }}</title>
+  <style>
+    body {
+      margin: 0;
+      background: #fffdf6;
+      color: #333;
+      font-family: "Noto Sans JP", sans-serif;
+      line-height: 1.9;
+    }
+    header {
+      background: #fff4c9;
+      padding: 36px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    nav {
+      margin-top: 12px;
+    }
+    nav a {
+      color: #555;
+      margin: 0 12px;
+      text-decoration: none;
+    }
+    main {
+      max-width: 850px;
+      margin: 40px auto;
+      padding: 0 24px;
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #777;
+      border-top: 1px solid #eee;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>{{ site.title }}</h1>
+    <nav>
+      <a href="{{ '/' | relative_url }}">ホーム</a>
+    </nav>
+  </header>
+
+  <main>
+    {{ content }}
+  </main>
+
+  <footer>
+    &copy; {{ site.time | date: "%Y" }} 自分で学ぶ中国語
+  </footer>
+</body>
+</html>
