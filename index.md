@@ -4,7 +4,7 @@ title: 'Welcome！'
 ---
 
 <section aria-labelledby="welcome-heading">
-<h2 class="welcome-title" id="welcome-heading">ようこそ、りんりんのブログへ</h2>
+<h2 class="welcome-title" id="welcome-heading">Welcome</h2>
 <p class="welcome-copy">中国語は学べば学ぶほど魅了されてしまう言語です。一緒に楽しく独学(？)しましょう！<br>
 メニューから選んでご覧ください✨</p>
 <figure class="welcome-photo">
