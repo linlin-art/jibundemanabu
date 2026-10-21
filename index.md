@@ -36,3 +36,8 @@ title: 'Welcome！'
   <p>2015年8月に中国語独学を始めました。2017年6月中国語検定2級取得。2020年12月HSK6級240点取得。猫が大好き。趣味は吸猫(猫とじゃれあったり遊んだりすること*中国語新語)です。</p>
 </section>
 
+
+<section id="amazon-disclosure" aria-label="広告について" style="margin-top: 32px; padding-top: 20px; border-top: 1px solid #dce2ec;">
+<h3>広告について</h3>
+<p>当ブログには広告・アフィリエイトリンクが含まれます。Amazonのアソシエイトとして、linlinは適格販売により収入を得ています。</p>
+</section>
