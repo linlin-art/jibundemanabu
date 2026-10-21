@@ -1,74 +1,65 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ page.title | default: site.title | escape }}</title>
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.title | default: site.title | escape }}</title>
+<style>
     * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: #ffffff;
-      color: #444444;
-      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-      font-size: 17px;
-      line-height: 1.9;
-      overflow-wrap: anywhere;
-    }
-    header { padding-top: 64px; background: #ffffff; text-align: center; }
-    header h1 {
-      margin: 0; padding: 0 20px;
-      font-size: clamp(1.7rem, 5vw, 2.6rem);
-      font-weight: 400; line-height: 1.5; letter-spacing: 0.05em;
-    }
-    .site-title { color: #444444; text-decoration: none; }
-    nav { margin-top: 52px; padding: 15px 20px; background: #293FA3; }
-    nav a {
-      display: inline-block; margin: 0 12px; padding: 4px 12px;
-      border-radius: 3px; color: #ffffff; font-weight: 700; text-decoration: none;
-    }
-    nav a:hover { background: #203080; }
-    nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 0.35em; }
-    main { max-width: 900px; margin: 48px auto 64px; padding: 0 24px; }
+    body { margin: 0; background: #fff; color: #444; font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; font-size: 17px; line-height: 1.9; overflow-wrap: anywhere; }
+    .site-header { padding: 48px 24px; text-align: center; border-bottom: 5px solid #293FA3; }
+    .site-header h1 { margin: 0; font-size: clamp(1.7rem, 4vw, 2.6rem); font-weight: 400; line-height: 1.5; letter-spacing: .05em; }
+    .site-title { color: #444; text-decoration: none; }
+    .page-layout { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 40px; max-width: 1320px; margin: 40px auto 64px; padding: 0 24px; align-items: start; }
+    .sidebar { min-width: 0; background: #f5f6fb; border: 1px solid #e0e4f0; border-radius: 6px; }
+    .menu-heading { margin: 0; padding: 12px 16px; border-radius: 5px 5px 0 0; background: #293FA3; color: white; font-size: 1rem; font-weight: 700; }
+    .menu-toggle > summary { display: none; }
+    .menu-items { padding: 8px; font-size: 14px; line-height: 1.8; }
+    .menu-items > a, .menu-group { display: block; margin: 0; border-bottom: 1px solid #e0e4f0; }
+    .menu-items > :last-child { border-bottom: 0; }
+    nav a { display: block; padding: 10px 12px; color: #303c69; text-decoration: none; border-radius: 4px; }
+    nav a:hover, .menu-group summary:hover { background: #e5e9f6; }
+    nav a[aria-current="page"] { background: #e0e6f7; color: #203080; font-weight: 700; box-shadow: inset 3px 0 #293FA3; }
+    .menu-group summary { padding: 10px 12px; color: #303c69; cursor: pointer; font-weight: 600; }
+    .menu-group ul { list-style: none; margin: 0 4px 10px 14px; padding: 0 0 0 8px; border-left: 2px solid #ccd4eb; }
+    .menu-group li a { padding: 8px 10px; }
+    a:focus-visible, summary:focus-visible { outline: 3px solid #3048A5; outline-offset: 2px; }
+    main { min-width: 0; width: 100%; }
     main h1, main h2, main h3 { line-height: 1.6; }
     main h1 { margin: 0 0 1em; font-size: 1.8rem; font-weight: 500; }
-    main h2 {
-      margin-top: 2em; padding-bottom: 0.35em; border-bottom: 3px solid #F0D83A;
-      font-size: 1.4rem; font-weight: 600;
-    }
+    main h2 { margin-top: 2em; padding-bottom: .35em; border-bottom: 3px solid #F0D83A; font-size: 1.4rem; font-weight: 600; }
     main h3 { margin-top: 1.8em; font-size: 1.15rem; font-weight: 600; }
-    main a { color: #3048A5; text-decoration: underline; text-underline-offset: 0.2em; }
+    main a { color: #3048A5; text-decoration: underline; text-underline-offset: .2em; }
     main a:hover { text-decoration-thickness: 2px; }
-    a:focus-visible { outline: 3px solid #3048A5; outline-offset: 4px; }
-    nav a:focus-visible { outline-color: #ffffff; }
-    main img { max-width: 100%; height: auto; }
+    main img, main video { max-width: 100%; height: auto; }
+    main iframe { max-width: 100%; }
+    main figure { max-width: 100%; margin-left: 0; margin-right: 0; }
     main pre { overflow-x: auto; padding: 16px; background: #f5f7f8; }
-    footer {
-      padding: 28px 20px; border-top: 1px solid #e5e5e5;
-      color: #777777; text-align: center; font-size: 0.85rem;
-    }
-    @media (max-width: 600px) {
+    footer { padding: 28px 20px; border-top: 1px solid #e5e5e5; color: #777; text-align: center; font-size: .85rem; }
+    @media (max-width: 900px) {
       body { font-size: 16px; }
-      header { padding-top: 40px; }
-      nav { margin-top: 32px; }
-      nav a { margin: 0 6px; }
-      main { margin-top: 32px; padding: 0 20px; }
+      .site-header { padding: 32px 20px; }
+      .page-layout { display: block; margin: 24px auto 40px; padding: 0 20px; }
+      .sidebar { margin-bottom: 28px; }
+      .menu-heading { display: none; }
+      .menu-toggle > summary { display: list-item; padding: 12px 16px; background: #293FA3; color: white; font-weight: 700; cursor: pointer; border-radius: 5px; }
+      .menu-toggle > summary:focus-visible { outline-offset: 3px; }
+      .menu-items { font-size: 15px; }
       main h1 { font-size: 1.5rem; }
       main h2 { font-size: 1.25rem; }
     }
-      .menu-items { max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 8px 16px; }
-    .menu-items > a, .menu-group { max-width: 100%; margin: 0; }
-    .menu-group { text-align: left; }
-    .menu-group summary { padding: 4px 12px; color: white; font-weight: 700; cursor: pointer; }
-    .menu-group summary:focus-visible { outline: 3px solid white; outline-offset: 2px; }
-    .menu-group ul { list-style: none; margin: 8px 0; padding: 8px; background: #203080; border-radius: 4px; max-width: 380px; }
-    .menu-group li a { display: block; margin: 0; font-size: 0.9rem; }
 </style>
 </head>
 <body>
-  <header>
-    <h1><a class="site-title" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a></h1>
-    <nav aria-label="メインナビゲーション"><div class="menu-items">
+<header class="site-header">
+<h1><a class="site-title" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a></h1>
+</header>
+<div class="page-layout">
+<aside class="sidebar" aria-label="サイトメニュー">
+<h2 class="menu-heading">メニュー</h2>
+<details class="menu-toggle" id="site-menu" open>
+<summary>メニュー ☰</summary>
+<nav aria-label="メインナビゲーション"><div class="menu-items">
 <a href="{{ '/' | relative_url }}">&#128522; りんりんです。</a>
 <a href="{{ '/articles.html' | relative_url }}">&#128522; Hello!～New blog～最新投稿から</a>
 <a href="{{ '/article-86.html' | relative_url }}">&#128522; 中国語学習～中国語が独学に向いている理由～私はこうして中国語独学を始めました。</a>
@@ -81,8 +72,27 @@
 <a href="{{ '/article-5087.html' | relative_url }}">&#128522; HSK6級合格しました！～HSK6級受験までの勉強ブログ 後記～</a>
 <a href="{{ '/profile.html' | relative_url }}">✨『りんりん』という名前について。</a>
 </div></nav>
-  </header>
-  <main>{{ content }}</main>
-  <footer>&copy; {{ site.time | date: "%Y" }} 自分で学ぶ中国語</footer>
+</details>
+</aside>
+<main>{{ content }}</main>
+</div>
+<footer>&copy; {{ site.time | date: "%Y" }} 自分で学ぶ中国語</footer>
+<script>
+(function () {
+  var menu = document.getElementById('site-menu');
+  var compact = window.matchMedia('(max-width: 900px)');
+  function resizeMenu() { menu.open = !compact.matches; }
+  resizeMenu();
+  if (compact.addEventListener) { compact.addEventListener('change', resizeMenu); }
+  else { compact.addListener(resizeMenu); }
+  document.querySelectorAll('nav a').forEach(function (link) {
+    if (new URL(link.href).pathname === window.location.pathname) {
+      link.setAttribute('aria-current', 'page');
+      var group = link.closest('.menu-group');
+      if (group) { group.open = true; }
+    }
+  });
+})();
+</script>
 </body>
 </html>
