@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ page.title | default: site.title }}</title>
+  <title>{{ page.title | default: site.title | escape }}</title>
   <style>
     * {
       box-sizing: border-box;
@@ -44,7 +44,7 @@
     nav {
       margin-top: 52px;
       padding: 15px 20px;
-      background: #0e819b;
+      background: #293FA3;
     }
 
     nav a {
@@ -58,7 +58,7 @@
     }
 
     nav a:hover {
-      background: #08657b;
+      background: #203080;
     }
 
     main {
@@ -82,7 +82,7 @@
     main h2 {
       margin-top: 2em;
       padding-bottom: 0.35em;
-      border-bottom: 3px solid #f4d35e;
+      border-bottom: 3px solid #F0D83A;
       font-size: 1.4rem;
       font-weight: 600;
     }
@@ -94,7 +94,7 @@
     }
 
     main a {
-      color: #086b86;
+      color: #3048A5;
       text-decoration: underline;
       text-underline-offset: 0.2em;
     }
@@ -104,7 +104,7 @@
     }
 
     a:focus-visible {
-      outline: 3px solid #086b86;
+      outline: 3px solid #3048A5;
       outline-offset: 4px;
     }
 
