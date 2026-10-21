@@ -61,6 +61,11 @@
       background: #203080;
     }
 
+    nav a[aria-current="page"] {
+      text-decoration: underline;
+      text-underline-offset: 0.35em;
+    }
+
     main {
       max-width: 900px;
       margin: 48px auto 64px;
@@ -144,6 +149,10 @@
         margin-top: 32px;
       }
 
+      nav a {
+        margin: 0 6px;
+      }
+
       main {
         margin-top: 32px;
         padding: 0 20px;
@@ -167,7 +176,8 @@
       </a>
     </h1>
     <nav aria-label="メインナビゲーション">
-      <a href="{{ '/' | relative_url }}">ホーム</a>
+      <a href="{{ '/' | relative_url }}"{% if page.url == '/' or page.url == '/index.html' %} aria-current="page"{% endif %}>ホーム</a>
+      <a href="{{ '/articles.html' | relative_url }}"{% if page.url == '/articles.html' %} aria-current="page"{% endif %}>記事一覧</a>
     </nav>
   </header>
 
