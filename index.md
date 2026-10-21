@@ -3,16 +3,14 @@ layout: default
 title: 'Welcome！'
 ---
 
-<figure style="margin: 0 0 32px;">
-  <img src="{{ '/sunflower.jpg' | relative_url }}"
-       alt="青空に咲くひまわり"
-       style="display: block; width: 100%; height: auto;">
-  <figcaption>
-    ようこそ、りんりんのブログへ<br>
-    中国語は学べば学ぶほど魅了されてしまう言語です。<br>
-    一緒に楽しく独学(？)しましょう！<br>
-    メニューから選んでご覧ください✨
-  </figcaption>
+<div style="margin-bottom: 24px;">
+  <p style="margin-top: 0;">ようこそ、りんりんのブログへ<br>
+  中国語は学べば学ぶほど魅了されてしまう言語です。<br>
+  一緒に楽しく独学(？)しましょう！<br>
+  メニューから選んでご覧ください✨</p>
+</div>
+<figure style="width: 100%; max-width: 480px; margin: 0 auto 32px;">
+  <img src="{{ '/sunflower.jpg' | relative_url }}" alt="青空に咲くひまわり" style="display: block; width: 100%; height: auto;">
 </figure>
 
 <p>りんりんです。</p>
@@ -33,15 +31,10 @@ title: 'Welcome！'
 
 <p>りんりん</p>
 
-<section aria-label="プロフィール"
-         style="margin: 40px 0; padding: 24px; border: 1px solid #e5e5e5;">
-  <img src="{{ '/profile.jpg' | relative_url }}"
-       alt="りんりんのプロフィール画像"
-       width="120"
-       height="120"
-       style="display: block; object-fit: cover; margin-bottom: 16px;">
+<section aria-label="プロフィール" style="margin: 40px 0; padding: 24px; border: 1px solid #e5e5e5;">
+  <img src="{{ '/profile.jpg' | relative_url }}" alt="りんりんのプロフィール画像" width="120" height="120" style="display: block; object-fit: cover; margin-bottom: 16px;">
   <h3 style="margin-top: 0;">りんりん</h3>
   <p>2015年8月に中国語独学を始めました。2017年6月中国語検定2級取得。2020年12月HSK6級240点取得。猫が大好き。趣味は吸猫(猫とじゃれあったり遊んだりすること*中国語新語)です。</p>
 </section>
 
-<p style="color: #999999;">～『自分で学ぶ中国語』は、amazon.co.jpを宣伝しリンクすることによってサイトが紹介料を獲得できる手段を提供することを目的に設定されたアフィリエイト宣伝プログラムである 『Amazonアソシエイト・プログラム』の参加者です。～</p>
+<p style="text-align: left;"><span style="color: #999999;">～『自分で学ぶ中国語』は、amazon.co.jpを宣伝しリンクすることによってサイトが紹介料を獲得できる手段を提供することを目的に設定されたアフィリエイト宣伝プログラムである 『Amazonアソシエイト・プログラム』の参加者です。～</span></p>
