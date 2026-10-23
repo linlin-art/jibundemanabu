@@ -10,3 +10,6 @@ markdown: kramdown
 permalink: /:year/:month/:day/:title/
 
 timezone: Asia/Tokyo
+
+plugins:
+  - jekyll-sitemap
